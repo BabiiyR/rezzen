@@ -61,7 +61,7 @@ const languages = {
     hero: { prefix: "Arquitetura", arch: "Delicada.", eng: "Engenharia Intensa." },
     manifesto: {
       title: "Manifesto de Engenharia",
-      text: "Graduada em Engenharia da Computação pela UNIVESP, arquitetamos ecossistemas onde a Engenharia Intensa encontra a Arquitetura Delicada. De backends em Go a infraestruturas Dockerizadas, cada linha é projetada para performance de luxo e impacto de elite."
+      text: "Na Rezzen, engenharia não é commodity. É vantagem competitiva. Criamos ecossistemas onde performance, estética e escalabilidade coexistem sem concessões. De backends em Go a infraestruturas containerizadas, cada camada é projetada com rigor técnico e intenção estratégica. Não tomamos decisões para agradar tendências - tomamos decisões para sustentar crescimento real. Cada sistema que construímos nasce com objetivo claro: operar sob pressão, escalar sem fricção e envelhecer sem se tornar dívida. Não estamos aqui para entregar software comum. Estamos aqui para construir sistemas que sustentam empresas que não podem falhar."
     },
     arsenal: {
       title: "O Lab: Nosso Arsenal",
