@@ -61,7 +61,7 @@ const languages = {
     hero: { prefix: "Arquitetura", arch: "Delicada.", eng: "Engenharia Intensa." },
     manifesto: {
       title: "Manifesto de Engenharia",
-      text: "Graduada em Engenharia da Computação pela UNIVESP, arquitetamos ecossistemas onde a Engenharia Intensa encontra a Engenharia Delicada. De backends em Go a infraestruturas Dockerizadas, cada linha é projetada para performance de luxo e impacto de elite."
+      text: "Graduada em Engenharia da Computação pela UNIVESP, arquitetamos ecossistemas onde a Engenharia Intensa encontra a Arquitetura Delicada. De backends em Go a infraestruturas Dockerizadas, cada linha é projetada para performance de luxo e impacto de elite."
     },
     arsenal: {
       title: "O Lab: Nosso Arsenal",
@@ -83,7 +83,7 @@ export default function Home() {
   const [lang, setLang] = useState('pt');
   const c = languages[lang as keyof typeof languages];
 
-  // Mapeamento explícito da Stack de Elite para evitar erros de renderização de nomes
+  // Mapeamento explícito da Stack de Elite
   const eliteStack = [
     { icon: SiDocker, name: "DOCKER", color: "text-[#2496ED]" },
     { icon: SiPostgresql, name: "POSTGRES", color: "text-[#336791]" },
@@ -129,7 +129,7 @@ export default function Home() {
           variants={itemVariants} 
           className="text-6xl md:text-[90px] font-extralight tracking-tighter leading-[0.85] mb-10"
         >
-          {c.hero.prefix} <span className="italic opacity-60 font-serif">{c.hero.arch}</span> <br />
+          {c.hero.prefix} <span className="italic font-serif text-gold-metallic">{c.hero.arch}</span> <br />
           <span className="font-normal">{c.hero.eng}</span>
         </motion.h1>
         
