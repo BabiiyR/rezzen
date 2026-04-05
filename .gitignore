@@ -1,0 +1,23 @@
+# Dependências
+node_modules/
+/.pnp
+.pnp.js
+
+# Build do Next.js
+.next/
+out/
+build/
+
+# Debug e Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Variáveis de Ambiente (Segurança!)
+.env*.local
+.env
+
+# Sistema (macOS/Windows)
+.DS_Store
+Thumbs.db

@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-champagne: #F8F4E3;
+  --color-rose-accent: #F4DADA; 
+  --color-sand: #EADCBF;
+  --color-espresso: #1A120B;
+  --color-gold-muted: #A68B5B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #F8F4E3 0%,
+    #F4DADA 45%, 
+    #EADCBF 100%
+  ) fixed;
+  color: #1A120B;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: auto; /* Libera o scroll vertical */
+  overflow-x: hidden; /* Trava o scroll horizontal */
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(26, 18, 11, 0.04);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-gold-metallic {
+  background: linear-gradient(
+    to right, 
+    #BF953F 0%, 
+    #FCF6BA 20%, 
+    #B38728 40%, 
+    #FBF5B7 60%, 
+    #AA771C 80%,
+    #BF953F 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.btn-clean-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1.2rem 3rem;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.mix-blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+/* Scrollbar Clean */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(166, 139, 91, 0.2); border-radius: 10px; }
