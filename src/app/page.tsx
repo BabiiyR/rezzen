@@ -2,13 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MoveRight, Globe, Code2, Cpu, ArrowDown, Mail, Database, Terminal } from "lucide-react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { MoveRight, Globe, ArrowDown, Mail, Terminal } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 // Ícones Técnicos Coloridos
-import { SiDocker, SiPostgresql, SiGo, SiPython, SiReact, SiVite, SiTailwindcss, SiFirebase, SiHtml5, SiCss } from "react-icons/si";
+import { 
+  SiDocker, SiPostgresql, SiGo, SiPython, 
+  SiReact, SiVite, SiTailwindcss, SiFirebase 
+} from "react-icons/si";
 
-// Definição das Variantes de Animação com Tipagem explícita para o TypeScript
+// Definição das Variantes de Animação
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -58,7 +61,7 @@ const languages = {
     hero: { prefix: "Arquitetura", arch: "Delicada.", eng: "Engenharia Intensa." },
     manifesto: {
       title: "Manifesto de Engenharia",
-      text: "Graduada em Engenharia da Computação pela UNIVESP, arquitetamos ecossistemas onde a Engenharia Intensa encontra a Arquitetura Delicada. De backends em Go a infraestruturas Dockerizadas, cada linha é projetada para performance de luxo e impacto de elite."
+      text: "Graduada em Engenharia da Computação pela UNIVESP, arquitetamos ecossistemas onde a Engenharia Intensa encontra a Engenharia Delicada. De backends em Go a infraestruturas Dockerizadas, cada linha é projetada para performance de luxo e impacto de elite."
     },
     arsenal: {
       title: "O Lab: Nosso Arsenal",
@@ -80,6 +83,18 @@ export default function Home() {
   const [lang, setLang] = useState('pt');
   const c = languages[lang as keyof typeof languages];
 
+  // Mapeamento explícito da Stack de Elite para evitar erros de renderização de nomes
+  const eliteStack = [
+    { icon: SiDocker, name: "DOCKER", color: "text-[#2496ED]" },
+    { icon: SiPostgresql, name: "POSTGRES", color: "text-[#336791]" },
+    { icon: SiGo, name: "GO", color: "text-[#00ADD8]" },
+    { icon: SiPython, name: "PYTHON", color: "text-[#3776AB]" },
+    { icon: SiReact, name: "REACT", color: "text-[#61DAFB]" },
+    { icon: SiVite, name: "VITE", color: "text-[#646CFF]" },
+    { icon: SiTailwindcss, name: "TAILWIND", color: "text-[#06B6D4]" },
+    { icon: SiFirebase, name: "FIREBASE", color: "text-[#FFCA28]" },
+  ];
+
   return (
     <main className="min-h-screen w-full flex flex-col items-center bg-transparent text-black selection:bg-gold-muted/30 antialiased overflow-x-hidden">
       
@@ -90,7 +105,7 @@ export default function Home() {
         transition={{ delay: 0.5, duration: 0.8 }}
         className="fixed top-8 right-8 z-50 select-none"
       >
-        <div className="glass-card flex items-center gap-1.5 p-1 rounded-full text-[10px] font-bold uppercase border-white/20 shadow-lg bg-white/10 backdrop-blur-xl">
+        <div className="flex items-center gap-1.5 p-1 rounded-full text-[10px] font-bold uppercase border border-black/10 shadow-lg bg-white/10 backdrop-blur-xl">
           <Globe size={14} className="ml-2 mr-1 opacity-50" />
           <button onClick={() => setLang('en')} className={`px-4 py-2 rounded-full transition-all duration-300 ${lang === 'en' ? 'bg-white text-black shadow-sm' : 'opacity-40 hover:opacity-100'}`}>EN</button>
           <button onClick={() => setLang('pt')} className={`px-4 py-2 rounded-full transition-all duration-300 ${lang === 'pt' ? 'bg-white text-black shadow-sm' : 'opacity-40 hover:opacity-100'}`}>PT</button>
@@ -104,8 +119,8 @@ export default function Home() {
         variants={containerVariants}
         className="h-screen w-full flex flex-col items-center justify-center text-center px-6 relative"
       >
-        <motion.div variants={itemVariants} className="glass-card w-44 h-44 rounded-[4rem] mb-12 flex items-center justify-center relative overflow-hidden group shadow-2xl border-white/40">
-          <div className="relative w-full h-full mix-blend-multiply p-6">
+        <motion.div variants={itemVariants} className="w-44 h-44 rounded-[4rem] mb-12 flex items-center justify-center relative overflow-hidden group shadow-2xl border border-white/40 bg-white/20 backdrop-blur-md">
+          <div className="relative w-full h-full p-6">
             <Image src="/assets/rezzenicon.png" alt="Rezzen" fill className="object-contain p-4 group-hover:scale-110 transition-transform duration-1000" priority />
           </div>
         </motion.div>
@@ -114,7 +129,7 @@ export default function Home() {
           variants={itemVariants} 
           className="text-6xl md:text-[90px] font-extralight tracking-tighter leading-[0.85] mb-10"
         >
-          {c.hero.prefix} <span className="text-gold-metallic italic">{c.hero.arch}</span> <br />
+          {c.hero.prefix} <span className="italic opacity-60 font-serif">{c.hero.arch}</span> <br />
           <span className="font-normal">{c.hero.eng}</span>
         </motion.h1>
         
@@ -157,15 +172,11 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div 
             variants={itemVariants}
-            whileHover={{ y: -10, rotateX: 2, rotateY: -2, scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 150, damping: 15 }}
-            className="glass-card p-10 rounded-[3rem] group hover:bg-white/30 transition-all duration-700 border-white/40 shadow-xl overflow-hidden relative"
+            whileHover={{ y: -10, scale: 1.02 }}
+            className="p-10 rounded-[3rem] group bg-white/20 hover:bg-white/40 transition-all duration-700 border border-white/40 shadow-xl relative overflow-hidden"
           >
-            {/* CORREÇÃO: Tailwind v4 bg-linear-to-br */}
-            <div className="absolute inset-0 bg-linear-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
             <div className="relative z-10">
-              <div className="relative w-24 h-24 mb-8 mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div className="relative w-24 h-24 mb-8 mix-blend-multiply opacity-80">
                  <Image src="/assets/project-sirius-light.png" alt="Project Sirius" fill className="object-contain" />
               </div>
               <h3 className="text-2xl font-bold mb-4 tracking-tighter">Project Sirius</h3>
@@ -180,15 +191,11 @@ export default function Home() {
 
           <motion.div 
             variants={itemVariants}
-            whileHover={{ y: -10, rotateX: -2, rotateY: 2, scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 150, damping: 15 }}
-            className="glass-card p-10 rounded-[3rem] group hover:bg-white/30 transition-all duration-700 border-white/40 shadow-xl overflow-hidden relative"
+            whileHover={{ y: -10, scale: 1.02 }}
+            className="p-10 rounded-[3rem] group bg-white/20 hover:bg-white/40 transition-all duration-700 border border-white/40 shadow-xl relative overflow-hidden"
           >
-            {/* CORREÇÃO: Tailwind v4 bg-linear-to-br */}
-            <div className="absolute inset-0 bg-linear-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
             <div className="relative z-10">
-              <div className="relative w-24 h-24 mb-8 mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity">
+              <div className="relative w-24 h-24 mb-8 mix-blend-multiply opacity-80">
                  <Image src="/assets/bunnyops.png" alt="BunnyOps" fill className="object-contain" />
               </div>
               <h3 className="text-2xl font-bold mb-4 tracking-tighter">BunnyOps</h3>
@@ -209,31 +216,21 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
         variants={containerVariants}
-        className="py-32 px-6 w-full bg-white/5 border-y border-white/10 backdrop-blur-sm relative overflow-hidden"
+        className="py-32 px-6 w-full bg-white/5 border-y border-black/5 backdrop-blur-sm relative"
       >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 relative z-10">
           <motion.div variants={itemVariants}>
             <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold mb-10 opacity-40">{c.tech}</h4>
             <div className="grid grid-cols-4 gap-x-6 gap-y-10 text-black/70 group">
-              {[SiDocker, SiPostgresql, SiGo, SiPython, SiReact, SiVite, SiTailwindcss, SiFirebase].map((Icon, i) => (
+              {eliteStack.map((tech, i) => (
                 <motion.div 
                   key={i}
                   whileHover={{ scale: 1.15, y: -5 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
                   className="flex flex-col items-center gap-2 group-hover:opacity-30 hover:opacity-100 transition-opacity cursor-pointer"
                 >
-                  <Icon size={30} className={
-                    i === 0 ? "text-[#2496ED]" :
-                    i === 1 ? "text-[#336791]" :
-                    i === 2 ? "text-[#00ADD8]" :
-                    i === 3 ? "text-[#3776AB]" :
-                    i === 4 ? "text-[#61DAFB]" :
-                    i === 5 ? "text-[#646CFF]" :
-                    i === 6 ? "text-[#06B6D4]" :
-                    "text-[#FFCA28]"
-                  }/>
+                  <tech.icon size={30} className={tech.color}/>
                   <span className="text-[8px] tracking-widest font-bold">
-                    {Icon.name.replace('Si', '').toUpperCase()}
+                    {tech.name}
                   </span>
                 </motion.div>
               ))}
@@ -244,7 +241,7 @@ export default function Home() {
             <ul className="space-y-6">
               {[c.process.s1, c.process.s2, c.process.s3].map((step, i) => (
                 <li key={i} className="flex items-center gap-4 group">
-                  <span className="text-gold-metallic font-bold text-lg opacity-40 group-hover:opacity-100 transition-opacity">0{i+1}</span>
+                  <span className="font-bold text-lg opacity-20 group-hover:opacity-100 transition-opacity">0{i+1}</span>
                   <span className="text-lg font-light tracking-tight">{step}</span>
                 </li>
               ))}
@@ -263,9 +260,9 @@ export default function Home() {
       >
         <motion.a 
           variants={itemVariants}
-          href="mailto:babiiyr@outlook.com" 
-          whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(166, 139, 91, 0.15)" }}
-          className="btn-clean-glass text-black group transition-all"
+          href="mailto:rezzen.engineering@gmail.com" 
+          whileHover={{ scale: 1.05 }}
+          className="flex items-center gap-4 px-10 py-5 rounded-full border border-black/10 bg-white/20 backdrop-blur-md text-black group transition-all font-bold uppercase tracking-widest text-[10px]"
         >
           <Mail size={16} className="opacity-40" />
           {c.contact}
