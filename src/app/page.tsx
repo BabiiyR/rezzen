@@ -41,12 +41,12 @@ const languages = {
     hero: { prefix: "Delicate", arch: "Architecture.", eng: "Intense Engineering." },
     manifesto: {
       title: "The Engineering Manifesto",
-      text: "Graduate in Computer Engineering from UNIVESP, I architect ecosystems where Intense Engineering meets Delicate Architecture. From Go backends to Dockerized infrastructures, every line is designed for high-end performance and elite impact."
+      text: "At Rezzen, engineering is a competitive advantage. We architect ecosystems where performance, aesthetics, and scalability coexist without compromise. From Go backends to Dockerized infrastructures, every layer is designed for high-end impact. We don't build common software; we build systems that sustain companies that cannot fail."
     },
     arsenal: {
       title: "The Lab: Our Arsenal",
-      sirius: "CRM Veterinary Medicine. Redefining Customer Relationship Management through high-fidelity UX and robust systems.",
-      bunny: "FinTech infrastructure lab. Exploring the intersection of banking security, PostgreSQL precision, and elite user-centric design."
+      sirius: "The Veterinarian's Cockpit. A high-performance management ecosystem redefining clinical precision through high-fidelity UX and robust data-driven architecture.",
+      bunny: "FinTech Infrastructure Lab. Exploring the intersection of banking security and smart automation to accelerate financial operations with absolute transparency."
     },
     tech: "Elite Tech Stack",
     process: {
@@ -61,12 +61,12 @@ const languages = {
     hero: { prefix: "Arquitetura", arch: "Delicada.", eng: "Engenharia Intensa." },
     manifesto: {
       title: "Manifesto de Engenharia",
-      text: "Na Rezzen, engenharia não é commodity. É vantagem competitiva. Criamos ecossistemas onde performance, estética e escalabilidade coexistem sem concessões. De backends em Go a infraestruturas containerizadas, cada camada é projetada com rigor técnico e intenção estratégica. Não tomamos decisões para agradar tendências - tomamos decisões para sustentar crescimento real. Cada sistema que construímos nasce com objetivo claro: operar sob pressão, escalar sem fricção e envelhecer sem se tornar dívida. Não estamos aqui para entregar software comum. Estamos aqui para construir sistemas que sustentam empresas que não podem falhar."
+      text: "Na Rezzen, engenharia não é commodity. É vantagem competitiva. Criamos ecossistemas onde performance, estética e escalabilidade coexistem sem concessões. De backends em Go a infraestruturas containerizadas, cada camada é projetada com rigor técnico e intenção estratégica. Cada sistema que construímos nasce com um objetivo claro: operar sob pressão, escalar sem fricção e sustentar empresas que não podem falhar."
     },
     arsenal: {
       title: "O Lab: Nosso Arsenal",
-      sirius: "CRM Veterinário. Redefinindo a gestão de relacionamento com o cliente através de UX de alta fidelidade e sistemas robustos.",
-      bunny: "Laboratório de infraestrutura FinTech. Explorando a intersecção entre segurança bancária, precisão PostgreSQL e design centrado no usuário."
+      sirius: "O Cockpit do Veterinário. Um ecossistema de gestão de alta performance que redefine a precisão clínica através de UX de alta fidelidade e arquitetura robusta baseada em dados.",
+      bunny: "Laboratório de Infraestrutura FinTech. Explorando a intersecção entre segurança bancária e automação inteligente para acelerar operações financeiras com transparência total."
     },
     tech: "Stack Tecnológico de Elite",
     process: {
@@ -83,7 +83,6 @@ export default function Home() {
   const [lang, setLang] = useState('pt');
   const c = languages[lang as keyof typeof languages];
 
-  // Mapeamento explícito da Stack de Elite
   const eliteStack = [
     { icon: SiDocker, name: "DOCKER", color: "text-[#2496ED]" },
     { icon: SiPostgresql, name: "POSTGRES", color: "text-[#336791]" },
@@ -182,9 +181,9 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-4 tracking-tighter">Project Sirius</h3>
               <p className="text-black/50 font-light leading-relaxed mb-8">{c.arsenal.sirius}</p>
               <div className="flex gap-2 flex-wrap text-black/60">
-                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">CRM</span>
+                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">Management Cockpit</span>
                  <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">Veterinary</span>
-                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">PostgreSQL</span>
+                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">Data-Driven</span>
               </div>
             </div>
           </motion.div>
@@ -202,8 +201,8 @@ export default function Home() {
               <p className="text-black/50 font-light leading-relaxed mb-8">{c.arsenal.bunny}</p>
               <div className="flex gap-2 flex-wrap text-black/60">
                  <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">FinTech</span>
-                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">Firebase</span>
-                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">Python</span>
+                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">Automation</span>
+                 <span className="px-3 py-1 bg-black/5 rounded-full text-[8px] font-bold uppercase tracking-widest">Security</span>
               </div>
             </div>
           </motion.div>
